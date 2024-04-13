@@ -2,7 +2,7 @@ import { View, Image, StatusBar, Alert } from "react-native"
 import { FontAwesome6, MaterialIcons } from "@expo/vector-icons"
 import { Link, router } from "expo-router"
 import { api } from "@/server/api"
-import axios from "axios"
+// import axios from "axios"
 
 import React, { useState } from "react"
 
@@ -23,7 +23,7 @@ export default function Register(){
             return Alert.alert("Incrição", "Preencha todos os campos!")
         }
 
-        setIsLoading(true)
+        // setIsLoading(true)
 
         const registerResponse = await api.post(`/events/${EVENT_ID}/attendees`, { name , email })
 
@@ -36,11 +36,11 @@ export default function Register(){
     } catch (error) {
         console.log(error)
 
-        if(axios.isAxiosError(error)){
-            if(String(error.response?.data.message).includes("already registered")){
-                return Alert.alert("Inscricao", "Este e-mail já está cadastrado!")
-            }
-        }
+        // if(axios.isAxiosError(error)){
+           // if(String(error.response?.data.message).includes("already registered")){
+             //   return Alert.alert("Inscricao", "Este e-mail já está cadastrado!")
+            // }
+        // }
         
         Alert.alert("Inscricao", "Não foi possivel fazer a inscrição")
 
